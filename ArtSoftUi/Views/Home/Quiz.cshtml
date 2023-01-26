@@ -1,0 +1,41 @@
+﻿@model List<QuizModel>
+
+<div class="row">
+
+    @foreach (var quiz in Model)
+    { 
+        if (quiz == Model.FirstOrDefault())
+        {
+            <div class="col-8 Question">
+                <div class="h2">@quiz.QuestionText</div>
+                @foreach (var answer in quiz.Answers)
+                {
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="@quiz.QuestionText" id="@answer.Id">
+                        <label class="form-check-label" for="@answer.Id">
+                            @answer.AnswerText
+                        </label>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="col-8 d-none Question">
+                <div class="h2">@quiz.QuestionText</div>
+                @foreach (var answer in quiz.Answers)
+                {
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="@quiz.QuestionText" id="@answer.Id">
+                        <label class="form-check-label" for="@answer.Id">
+                            @answer.AnswerText
+                        </label>
+                    </div>
+                }
+            </div>
+        }
+      
+    }
+    <button class="btn btn-success col-2" onclick="showNextQuestion();">Next</button>
+</div>
+

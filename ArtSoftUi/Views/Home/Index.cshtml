@@ -1,0 +1,14 @@
+﻿@model List<Test>
+
+<div class="row">
+
+    @foreach (var test in Model)
+    {
+        <div class="col-8">
+            <div class="h2">@test.Name</div>
+            <div class="h6">@test.ShortDesc</div>
+            <a class="btn btn-success" asp-controller="Home" asp-action="Quiz" asp-route-id='@test.Id'>Start Test</a>
+        </div>
+    }
+        <button class="btn btn-success">Add Employer</button>
+</div>
